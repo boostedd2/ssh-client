@@ -20,8 +20,10 @@ class MainApplication(Frame):
 
         sssh_db = shelve.open('SSSH_storage.db')
 
-        profile_config = sssh_db['profile_config']
-
+        try:
+            profile_config = sssh_db['profile_config']
+        except:
+            profile_config = {}
 
         #testing only, currently overide advanced >> button
         def print_dict():
